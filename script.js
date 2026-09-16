@@ -77,4 +77,80 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open(whatsappUrl, '_blank');
         });
     }
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+    
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        }
+    }
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            }
+        });
+    }
+
+    // Tracking Form Logic
+    const trackBtn = document.getElementById('track-btn');
+    const trackingIdInput = document.getElementById('tracking-id');
+    const trackingResult = document.getElementById('tracking-result');
+
+    if (trackBtn && trackingIdInput && trackingResult) {
+        trackBtn.addEventListener('click', () => {
+            const trackingId = trackingIdInput.value.trim();
+            if (trackingId) {
+                trackingResult.style.color = '#28a745'; // green color
+                trackingResult.textContent = `Tracking ID ${trackingId} found! Your shipment is currently in transit and is expected to arrive soon.`;
+            } else {
+                trackingResult.style.color = '#dc3545'; // red color
+                trackingResult.textContent = 'Please enter a valid Tracking ID.';
+            }
+        });
+    }
+
+    // FAQ Accordion Logic
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            faqItem.classList.toggle('active');
+        });
+    });
+
+    // Scroll Animations (Intersection Observer)
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const appearOptions = {
+        threshold: 0,
+        rootMargin: "0px 0px -100px 0px"
+    };
+    
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+    
+    fadeElements.forEach(element => {
+        appearOnScroll.observe(element);
+    });
 });

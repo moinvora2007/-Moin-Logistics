@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moin Logistics | Your Trusted Transport Partner</title>
-    <meta name="description" content="Moin Logistics - Fast, reliable, and secure transportation services based in Ahmedabad.">
+    <meta name="description"
+        content="Moin Logistics - Fast, reliable, and secure transportation services based in Ahmedabad.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <header class="navbar">
         <div class="container nav-content">
             <div class="logo">
                 <i class="fa-solid fa-truck-fast"></i> Moin Logistics
             </div>
-            <nav class="nav-links">
+            <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
-                <a href="#features">Fleet</a>
-                <a href="#warehouse">Warehouse</a>
                 <a href="#contact" class="btn btn-primary">Contact Us</a>
-            </nav>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
             <div class="mobile-menu-btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -38,6 +42,16 @@
                 <a href="#contact" class="btn btn-primary btn-large">Get a Quote</a>
                 <a href="#services" class="btn btn-outline btn-large">Our Services</a>
             </div>
+            
+            <!-- Shipment Tracking UI -->
+            <div class="tracking-box fade-in">
+                <h3>Track Your Shipment</h3>
+                <div class="tracking-form">
+                    <input type="text" id="tracking-id" placeholder="Enter Tracking ID (e.g. ML123456)">
+                    <button id="track-btn" class="btn btn-primary">Track</button>
+                </div>
+                <div id="tracking-result" class="tracking-result"></div>
+            </div>
         </div>
     </section>
 
@@ -45,8 +59,11 @@
         <div class="container about-content">
             <div class="about-text">
                 <h2 class="section-title">About Moin Logistics</h2>
-                <p>Welcome to Moin Logistics. We are dedicated to providing the fastest, most reliable, and highly secure transportation services across the nation and globally.</p>
-                <p>With years of experience in the industry, our team ensures that your cargo reaches its destination safely and on time. We handle everything from small parcels to large-scale freight with the utmost care.</p>
+                <p>Welcome to Moin Logistics. We are dedicated to providing the fastest, most reliable, and highly
+                    secure transportation services across the nation and globally.</p>
+                <p>With years of experience in the industry, our team ensures that your cargo reaches its destination
+                    safely and on time. We handle everything from small parcels to large-scale freight with the utmost
+                    care.</p>
             </div>
             <div class="about-image">
                 <img src="hero-image.jpg" alt="Moin Logistics Operations">
@@ -84,21 +101,77 @@
             </div>
             <div class="about-text">
                 <h2 class="section-title" style="text-align: left;">Our Fleet & Reliability</h2>
-                <p>Moin Logistics operates a robust fleet of modern, GPS-enabled vehicles designed to handle any cargo, from delicate goods to heavy machinery. Our operations run 24/7, ensuring uninterrupted supply chain management.</p>
-                <p>Our commitment to continuous innovation means faster delivery times, transparent tracking, and absolute peace of mind for your business.</p>
+                <p>Moin Logistics operates a robust fleet of modern, GPS-enabled vehicles designed to handle any cargo,
+                    from delicate goods to heavy machinery. Our operations run 24/7, ensuring uninterrupted supply chain
+                    management.</p>
+                <p>Our commitment to continuous innovation means faster delivery times, transparent tracking, and
+                    absolute peace of mind for your business.</p>
             </div>
         </div>
     </section>
 
     <section id="warehouse" class="about" style="background-color: var(--bg-light);">
-        <div class="container about-content">
+        <div class="container about-content fade-in">
             <div class="about-text">
                 <h2 class="section-title" style="text-align: left;">Warehousing & Storage</h2>
-                <p>Along with transportation, Moin Logistics provides state-of-the-art warehousing facilities. Our secure, well-lit, and systematically organized storage centers ensure your goods are safely kept until they are ready to be dispatched.</p>
-                <p>We handle inventory management and distribution seamlessly, giving you an end-to-end logistics solution.</p>
+                <p>Along with transportation, Moin Logistics provides state-of-the-art warehousing facilities. Our
+                    secure, well-lit, and systematically organized storage centers ensure your goods are safely kept
+                    until they are ready to be dispatched.</p>
+                <p>We handle inventory management and distribution seamlessly, giving you an end-to-end logistics
+                    solution.</p>
             </div>
             <div class="about-image">
                 <img src="warehouse.jpg" alt="Moin Logistics Warehouse">
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="gallery fade-in">
+        <div class="container">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="hero-image.jpg" alt="Fleet"></div>
+                <div class="gallery-item"><img src="new-logistics.jpg" alt="Operations"></div>
+                <div class="gallery-item"><img src="warehouse.jpg" alt="Warehouse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials fade-in" style="background-color: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Moin Logistics has transformed our supply chain. Their deliveries are always on time and communication is excellent."</p>
+                    <h4>- Rahul Patel</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Secure, fast, and very professional. The best transport service we have used in Gujarat."</p>
+                    <h4>- Amit Shah</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq fade-in">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What areas do you deliver to? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer"><p>We provide transportation services across India and also offer international freight solutions.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How can I track my shipment? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer"><p>You can use the tracking tool on our homepage by entering your unique Tracking ID.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer warehousing? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer"><p>Yes, we have secure warehousing facilities for short-term and long-term storage.</p></div>
+                </div>
             </div>
         </div>
     </section>
@@ -131,7 +204,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contact-form-container">
+                    
+                    <!-- Google Map embed -->
+                    <div class="map-container" style="margin-top: 2rem;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117511.05445210214!2d72.46313495475133!3d23.01186716039572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form-container">
                         <form id="inquiry-form" class="contact-form">
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -161,4 +240,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
